@@ -19,4 +19,4 @@ def deps do
 end
 ```
 
-Documentation can be found at https://hexdocs.pm/con_case.
+Documentation can be found at https://hexdocs.pm/conv_case.
