@@ -1,5 +1,6 @@
 # ConvCase
 [![Build Status](https://travis-ci.org/hrzndhrn/conv_case.svg?branch=master)](https://travis-ci.org/hrzndhrn/conv_case)
+[![Coverage Status](https://coveralls.io/repos/github/hrzndhrn/conv_case/badge.svg?branch=master)](https://coveralls.io/github/hrzndhrn/conv_case?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A library to convert strings, atoms and map keys between `camelCase`,
