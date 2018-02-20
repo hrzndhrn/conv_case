@@ -37,7 +37,8 @@ defmodule ConvCase.MixProject do
       {:credo, "~> 0.8", only: [:dev, :test]},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
       {:ex_doc, "~> 0.16", only: :dev, runtime: false},
-      {:excoveralls, "~> 0.7", only: :test}
+      {:excoveralls, "~> 0.7", only: :test},
+      {:inch_ex, "~> 0.5", only: [:dev, :test]}
     ]
   end
 
