@@ -28,12 +28,13 @@ defmodule ConvCase do
       iex> ConvCase.to_snake_case("foo-bar")
       "foo_bar"
 
-  For atoms, the function returns the converted string.
+  For atoms, the function returns the converted atom. This function used
+  `String.to_existing_atom/1`.
 
   ## Examples
 
       iex> ConvCase.to_snake_case(:fooBar)
-      "foo_bar"
+      :foo_bar
 
   For lists, the function returns a list with converted values.
 
@@ -66,7 +67,10 @@ defmodule ConvCase do
 
   def to_snake_case(atom)
       when is_atom(atom),
-      do: atom |> Atom.to_string() |> to_snake_case()
+      do: atom
+      |> Atom.to_string()
+      |> to_snake_case()
+      |> String.to_existing_atom()
 
   def to_snake_case(strings)
       when is_list(strings),
@@ -99,12 +103,13 @@ defmodule ConvCase do
       iex> ConvCase.to_camel_case("foo-bar")
       "fooBar"
 
-  For atoms, the function returns the converted string.
+  For atoms, the function returns the converted atom. This function used
+  `String.to_existing_atom/1`.
 
   ## Examples
 
       iex> ConvCase.to_camel_case(:foo_bar)
-      "fooBar"
+      :fooBar
 
   For lists, the function returns a list with converted values.
 
@@ -137,7 +142,10 @@ defmodule ConvCase do
 
   def to_camel_case(atom)
       when is_atom(atom),
-      do: atom |> Atom.to_string() |> to_camel_case()
+      do: atom
+      |> Atom.to_string()
+      |> to_camel_case()
+      |> String.to_existing_atom()
 
   def to_camel_case(strings)
       when is_list(strings),
@@ -168,12 +176,13 @@ defmodule ConvCase do
       iex> ConvCase.to_kebab_case("fooBar")
       "foo-bar"
 
-  For atoms, the function returns the converted string.
+  For atoms, the function returns the converted atom. This function used
+  `String.to_existing_atom/1`.
 
   ## Examples
 
       iex> ConvCase.to_kebab_case(:foo_bar)
-      "foo-bar"
+      :"foo-bar"
 
   For lists, the function returns a list with converted values.
 
@@ -205,7 +214,10 @@ defmodule ConvCase do
 
   def to_kebab_case(atom)
       when is_atom(atom),
-      do: atom |> Atom.to_string() |> to_kebab_case()
+      do: atom
+      |> Atom.to_string()
+      |> to_kebab_case()
+      |> String.to_existing_atom()
 
   def to_kebab_case(strings)
       when is_list(strings),
@@ -255,7 +267,7 @@ defmodule ConvCase do
   # Convert key with the given converter.
   defp convert_key(key, converter)
        when is_atom(key),
-       do: key |> converter.() |> String.to_existing_atom()
+       do: key |> converter.()
 
   defp convert_key(key, converter), do: converter.(key)
 

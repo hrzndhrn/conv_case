@@ -24,7 +24,7 @@ defmodule ConvCaseTest do
     end
 
     test "converts an atom into a string" do
-      assert to_snake_case(:fooBar) == "foo_bar"
+      assert to_snake_case(:fooBar) == :foo_bar
     end
 
     test "does not convert a snake_case string" do
@@ -64,7 +64,7 @@ defmodule ConvCaseTest do
     end
 
     test "converts an atom into a string" do
-      assert to_camel_case(:foo_bar) == "fooBar"
+      assert to_camel_case(:foo_bar) == :fooBar
     end
 
     test "does not convert a camelCase string" do
@@ -105,7 +105,7 @@ defmodule ConvCaseTest do
     end
 
     test "converts an atom into a string" do
-      assert to_kebab_case(:foo_bar) == "foo-bar"
+      assert to_kebab_case(:foo_bar) == :"foo-bar"
     end
 
     test "does not convert a kebab-case string" do
