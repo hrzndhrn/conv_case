@@ -47,6 +47,9 @@ defmodule ConvCaseTest do
 
       assert to_snake_case(%{"foo-bar": [%{"baz-baz" => 42}]}) ==
                %{foo_bar: [%{"baz_baz" => 42}]}
+
+      # Structs are ignored.
+      assert to_snake_case(%{fooBar: ~r/.*/}) == %{foo_bar: ~r/.*/}
     end
   end
 
@@ -87,6 +90,9 @@ defmodule ConvCaseTest do
 
       assert to_camel_case(%{foo_bar: [%{"baz-baz" => 42}]}) ==
                %{fooBar: [%{"bazBaz" => 42}]}
+
+      # Structs are ignored.
+      assert to_camel_case(%{foo_bar: ~r/.*/}) == %{fooBar: ~r/.*/}
     end
   end
 
@@ -129,6 +135,9 @@ defmodule ConvCaseTest do
 
       assert to_kebab_case(%{foo_bar: [%{"baz-baz" => 42}]}) ==
                %{"foo-bar": [%{"baz-baz" => 42}]}
+
+      # Structs are ignored.
+      assert to_kebab_case(%{foo_bar: ~r/.*/}) == %{"foo-bar": ~r/.*/}
     end
   end
 end

@@ -252,6 +252,8 @@ defmodule ConvCase do
     do: <<h>> <> do_to_separator_case(t, separator)
 
   # Convert map keys with the given converter.
+  defp convert_map(%{__struct__: _} = struct, _), do: struct
+
   defp convert_map(map, converter) when is_map(map) do
     for {key, value} <- map,
         into: %{},
