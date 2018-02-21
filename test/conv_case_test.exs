@@ -33,6 +33,8 @@ defmodule ConvCaseTest do
 
     test "returns values of unsupported types unconverted" do
       assert to_snake_case(42) == 42
+      assert to_snake_case(~r/.*/) == ~r/.*/
+      assert to_snake_case(%{~r/.*/ => 42}) == %{~r/.*/ => 42}
     end
 
     test "returns a list of converted values for a list" do
@@ -76,6 +78,8 @@ defmodule ConvCaseTest do
 
     test "returns values of unsupported types unconverted" do
       assert to_camel_case(42) == 42
+      assert to_camel_case(~r/.*/) == ~r/.*/
+      assert to_camel_case(%{~r/.*/ => 42}) == %{~r/.*/ => 42}
     end
 
     test "returns a list of converted values for a list" do
@@ -120,6 +124,8 @@ defmodule ConvCaseTest do
 
     test "returns values of unsupported types unconverted" do
       assert to_kebab_case(42) == 42
+      assert to_kebab_case(~r/.*/) == ~r/.*/
+      assert to_kebab_case(%{~r/.*/ => 42}) == %{~r/.*/ => 42}
     end
 
     test "returns a list of converted values for a list" do
