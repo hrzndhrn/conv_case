@@ -41,6 +41,11 @@ defmodule ConvCaseTest do
       assert to_snake_case(["fooBar", 33, "bAbA"]) == ["foo_bar", 33, "b_ab_a"]
     end
 
+    test "returns a tuple of converted values for a tuple" do
+      assert to_snake_case({"fooBar", "foo-bar", "foo_bar"}) ==
+               {"foo_bar", "foo_bar", "foo_bar"}
+    end
+
     test "returns a map with converted keys for a map" do
       assert to_snake_case(%{fooBar: "fooBar"}) == %{foo_bar: "fooBar"}
 
@@ -84,6 +89,11 @@ defmodule ConvCaseTest do
 
     test "returns a list of converted values for a list" do
       assert to_camel_case(["foo_bar", 33, "b_ab_a"]) == ["fooBar", 33, "bAbA"]
+    end
+
+    test "returns a tuple of converted values for a tuple" do
+      assert to_camel_case({"fooBar", "foo-bar", "foo_bar"}) ==
+               {"fooBar", "fooBar", "fooBar"}
     end
 
     test "returns a map with converted keys for a map" do
@@ -131,6 +141,11 @@ defmodule ConvCaseTest do
     test "returns a list of converted values for a list" do
       assert to_kebab_case(["foo_bar", 33, "b_ab_a"]) ==
                ["foo-bar", 33, "b-ab-a"]
+    end
+
+    test "returns a tuple of converted values for a tuple" do
+      assert to_kebab_case({"fooBar", "foo-bar", "foo_bar"}) ==
+               {"foo-bar", "foo-bar", "foo-bar"}
     end
 
     test "returns a map with converted keys for a map" do
