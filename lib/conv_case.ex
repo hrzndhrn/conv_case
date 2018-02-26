@@ -4,6 +4,15 @@ defmodule ConvCase do
   `snake_case` and `kebab-case`.
 
   Currently this functions do not support UTF-8.
+
+  If this package fits not your requirements then take a look here:
+
+    * [Macro.camelize/1](https://hexdocs.pm/elixir/Macro.html#camelize/1) and
+      [Macro.underscore/1](https://hexdocs.pm/elixir/Macro.html#underscore/1)
+    * [ReCase](https://github.com/sobolevn/recase) helps you to convert a string
+      from any case to any case.
+    * [ProperCase](https://github.com/johnnyji/proper_case) an Elixir library that
+      converts keys in maps between snake_case and camel_case.
   """
 
   @underscore ?_
