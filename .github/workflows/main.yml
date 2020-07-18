@@ -59,4 +59,4 @@ jobs:
       - name: Static code analysis
         run: |
           mix compile
-          mix dialyzer --halt-exit-status.
+          mix dialyzer --halt-exit-status
