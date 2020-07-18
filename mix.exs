@@ -17,7 +17,8 @@ defmodule ConvCase.MixProject do
         "coveralls.post": :test,
         "coveralls.html": :test
       ],
-      package: package()
+      package: package(),
+      dialyzer: dialyzer()
     ]
   end
 
@@ -30,6 +31,13 @@ defmodule ConvCase.MixProject do
 
   def application do
     [extra_applications: [:logger]]
+  end
+
+  defp dialyzer do
+    [
+      plt_file: {:no_warn, "test/support/plts/dialyzer.plt"},
+      flags: [:unmatched_returns]
+    ]
   end
 
   defp deps do
