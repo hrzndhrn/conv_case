@@ -32,6 +32,3 @@ If this package fits not your requirements then take a look here:
     from any case to any case.
   * [ProperCase](https://github.com/johnnyji/proper_case) an Elixir library that
     converts keys in maps between snake_case and camel_case.
-
-
-
