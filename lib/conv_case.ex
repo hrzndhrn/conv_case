@@ -316,7 +316,7 @@ defmodule ConvCase do
   # Convert key with the given converter.
   defp convert_key(key, converter)
        when is_atom(key),
-       do: key |> converter.()
+       do: converter.(key)
 
   defp convert_key(key, converter), do: converter.(key)
 
