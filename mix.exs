@@ -18,7 +18,8 @@ defmodule ConvCase.MixProject do
         "coveralls.html": :test
       ],
       package: package(),
-      dialyzer: dialyzer()
+      dialyzer: dialyzer(),
+      aliases: [gha: ["gha --elixir 1.13"]]
     ]
   end
 
