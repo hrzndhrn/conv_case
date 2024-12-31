@@ -18,8 +18,7 @@ defmodule ConvCase.MixProject do
         "coveralls.html": :test
       ],
       package: package(),
-      dialyzer: dialyzer(),
-      aliases: [gha: ["gha --elixir 1.13"]]
+      dialyzer: dialyzer()
     ]
   end
 
@@ -42,13 +41,17 @@ defmodule ConvCase.MixProject do
   end
 
   defp deps do
-    [
-      {:credo, "~> 1.4", only: [:dev, :test]},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
-      {:ex_doc, "~> 0.22", only: :dev, runtime: false},
-      {:excoveralls, "~> 0.13", only: :test},
-      {:recode, "~> 0.5", only: :dev}
-    ]
+    if Version.match?(System.version(), "~> 1.14") do
+      [
+        {:credo, "~> 1.4", only: [:dev, :test]},
+        {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
+        {:ex_doc, "~> 0.22", only: :dev, runtime: false},
+        {:excoveralls, "~> 0.13", only: :test},
+        {:recode, "~> 0.5", only: :dev}
+      ]
+    else
+      []
+    end
   end
 
   defp package do
