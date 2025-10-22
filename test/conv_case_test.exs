@@ -33,8 +33,10 @@ defmodule ConvCaseTest do
 
     test "returns values of unsupported types unconverted" do
       assert to_snake_case(42) == 42
-      assert to_snake_case(~r/.*/) == ~r/.*/
-      assert to_snake_case(%{~r/.*/ => 42}) == %{~r/.*/ => 42}
+      regex = ~r/.*/
+      assert to_snake_case(regex) == regex
+      map = %{~r/.*/ => 42}
+      assert to_snake_case(map) == map
     end
 
     test "returns a list of converted values for a list" do
@@ -56,7 +58,8 @@ defmodule ConvCaseTest do
                %{foo_bar: [%{"baz_baz" => 42}]}
 
       # Structs are ignored.
-      assert to_snake_case(%{fooBar: ~r/.*/}) == %{foo_bar: ~r/.*/}
+      map = %{foo_bar: ~r/.*/}
+      assert to_snake_case(map) == map
     end
   end
 
@@ -83,8 +86,10 @@ defmodule ConvCaseTest do
 
     test "returns values of unsupported types unconverted" do
       assert to_camel_case(42) == 42
-      assert to_camel_case(~r/.*/) == ~r/.*/
-      assert to_camel_case(%{~r/.*/ => 42}) == %{~r/.*/ => 42}
+      regex = ~r/.*/
+      assert to_camel_case(regex) == regex
+      map = %{~r/.*/ => 42}
+      assert to_camel_case(map) == map
     end
 
     test "returns a list of converted values for a list" do
@@ -106,7 +111,8 @@ defmodule ConvCaseTest do
                %{fooBar: [%{"bazBaz" => 42}]}
 
       # Structs are ignored.
-      assert to_camel_case(%{foo_bar: ~r/.*/}) == %{fooBar: ~r/.*/}
+      map = %{fooBar: ~r/.*/}
+      assert to_camel_case(map) == map
     end
   end
 
@@ -134,8 +140,10 @@ defmodule ConvCaseTest do
 
     test "returns values of unsupported types unconverted" do
       assert to_kebab_case(42) == 42
-      assert to_kebab_case(~r/.*/) == ~r/.*/
-      assert to_kebab_case(%{~r/.*/ => 42}) == %{~r/.*/ => 42}
+      regex = ~r/.*/
+      assert to_kebab_case(regex) == regex
+      map = %{~r/.*/ => 42}
+      assert to_kebab_case(map) == map
     end
 
     test "returns a list of converted values for a list" do
@@ -158,7 +166,8 @@ defmodule ConvCaseTest do
                %{"foo-bar": [%{"baz-baz" => 42}]}
 
       # Structs are ignored.
-      assert to_kebab_case(%{foo_bar: ~r/.*/}) == %{"foo-bar": ~r/.*/}
+      map = %{"foo-bar": ~r/.*/}
+      assert to_kebab_case(map) == map
     end
   end
 end
