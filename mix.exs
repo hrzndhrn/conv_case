@@ -16,17 +16,6 @@ defmodule ConvCase.MixProject do
     ]
   end
 
-  def cli do
-    [
-      preferred_envs: [
-        coveralls: :test,
-        "coveralls.detail": :test,
-        "coveralls.github": :test,
-        "coveralls.html": :test
-      ]
-    ]
-  end
-
   def description do
     """
     A library to convert strings, atoms and map keys between `camelCase`,
@@ -36,6 +25,17 @@ defmodule ConvCase.MixProject do
 
   def application do
     [extra_applications: [:logger]]
+  end
+
+  def cli do
+    [
+      preferred_envs: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.github": :test,
+        "coveralls.html": :test
+      ]
+    ]
   end
 
   defp dialyzer do
