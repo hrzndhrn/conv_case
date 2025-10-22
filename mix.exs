@@ -11,14 +11,19 @@ defmodule ConvCase.MixProject do
       description: description(),
       source_url: "https://github.com/hrzndhrn/conv_case",
       test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [
+      package: package(),
+      dialyzer: dialyzer()
+    ]
+  end
+
+  def cli do
+    [
+      preferred_envs: [
         coveralls: :test,
         "coveralls.detail": :test,
         "coveralls.github": :test,
         "coveralls.html": :test
-      ],
-      package: package(),
-      dialyzer: dialyzer()
+      ]
     ]
   end
 
